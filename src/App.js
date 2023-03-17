@@ -1,6 +1,6 @@
                                                                 
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import LoginPage from './LoginPage';
 import FriendListPage from './FriendListPage';
@@ -29,20 +29,27 @@ function App() {
              <div className="app">
           <div>
 
-           {isLoggedIn ? (
-             <ProfilePage friends ={friends} onLogout={handleLogout} />
-           ) : (
-             <FriendListPage username={username} onLogout={handleLogout} />
-           )}
-             {isLoggedIn ? (
+             {isLoggedIn ? ( 
+              <Router>
+               <Switch>
+                 <Route exact path="/">
                 <ProfilePage
                   username={username}
                   name="Ritu Swami"
                   email="johndoe@example.com"
                   phone="555-1234"
                   address="123 Main St"
-                  friends=""
+                  friends="FriendListPage"
                   />
+                </Route>  
+                <Route path="/friendlist">
+                  <FriendListPage
+                  username={username}
+                  onLogout={handleLogout}
+                  />
+                </Route>
+               </Switch>
+              </Router>  
            ) : (
              <LoginPage onLogin={handleLogin} className="loginpage" />
            )}

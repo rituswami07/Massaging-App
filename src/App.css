@@ -22,7 +22,10 @@
 }
 
 .App-header {
-  background-color: #ee4bd8;
+  background-image: url("website-background-design-guide-768x492.png.webp");
+  background-repeat: no-repeat;
+  background-size: 180% 100%;
+  opacity: 0.5;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,12 +40,12 @@
 }
 
 .Box {
-  background-color: rgb(241, 157, 210);
-  color: black;
+  background-color: #ffffff;
+  color: rgb(245, 9, 174);
   display: flex;
   min-height: 90vh;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
   border-radius: 15px;
 }
 
@@ -100,7 +103,7 @@
   width: 35%;
   color: black;
   border-radius: 10px;
-  border: solid 2px #ee4baf;
+  border: solid 2px #c57fe0;
   font-size: 15px;
 
 }
@@ -108,13 +111,20 @@
 .loginbtn {
   padding: 5px;
   margin: 5px;
-  width: 10%;
+  width: 15%;
   border-radius: 5px;
-  background-color: #ee4baf;
+  background-color: #9b23eb;
   color: black;
   margin-top: 5%;
-  margin-left: 2%;
+  margin-left: 1%;
   font-size: 15px;
+
+}
+
+.loginbtn:hover {
+  background-color:rgb(203, 20, 240);
+  color: black;
+
 }
 
 .loginpage{
@@ -135,3 +145,10 @@
   flex-direction: column;
   min-height: 90vh;
 }
+ 
+.img-2 {
+  width: 70px;
+  height: 50px;
+  border-radius: 50px;
+}
+
