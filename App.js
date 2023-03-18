@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import LoginPage from './LoginPage';
 import FriendListPage from './FriendListPage';
-
+//mohit
 function App() { 
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    const [username, setUsername] = useState("");
