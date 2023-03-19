@@ -1,6 +1,6 @@
                                                                 
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom";
 import './App.css';
 import LoginPage from './LoginPage';
 import FriendListPage from './FriendListPage';
@@ -31,6 +31,16 @@ function App() {
 
              {isLoggedIn ? ( 
               <Router>
+                <nav>
+                  <ul>
+                    <li>
+                      <Link to="/">Profile</Link>
+                      </li>
+                      <li>
+                        <Link to="/friendlist">Friends</Link>
+                        </li>
+                        </ul>
+                        </nav>
                <Switch>
                  <Route exact path="/">
                 <ProfilePage
@@ -39,7 +49,7 @@ function App() {
                   email="johndoe@example.com"
                   phone="555-1234"
                   address="123 Main St"
-                  friends="FriendListPage"
+                  friendlist={<Link to="/frindlist" />}
                   />
                 </Route>  
                 <Route path="/friendlist">
