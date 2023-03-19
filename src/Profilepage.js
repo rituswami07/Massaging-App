@@ -29,8 +29,8 @@ function ProfilePage(props) {
                     <li>
                         Address: {props.address}
                     </li>
-                    <li> Frnds: {friendList}
-                    </li>
+                    <button className="login-btn" type="submit"> Frnds: {friendList} 
+                    </button>
                 </ul>
             </p>
         </div>
