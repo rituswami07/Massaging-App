@@ -5,6 +5,7 @@ import './App.css';
 import LoginPage from './LoginPage';
 import FriendListPage from './FriendListPage';
 import ProfilePage from "./Profilepage";
+import MessagingPage from './MessagingPage';
 
 function App() { 
    const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,6 +40,9 @@ function App() {
                       <li>
                         <Link to="/friendlist">Friends</Link>
                         </li>
+                        <li>
+                          <Link to="messaging">Messaging</Link>
+                        </li>
                         </ul>
                         </nav>
                <Switch>
@@ -57,6 +61,9 @@ function App() {
                   username={username}
                   onLogout={handleLogout}
                   />
+                  <Route path="messaging">
+                    <MessagingPage />
+                  </Route>
                 </Route>
                </Switch>
               </Router>  
