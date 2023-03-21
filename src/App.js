@@ -10,6 +10,7 @@ import MessagingPage from './MessagingPage';
 function App() { 
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    const [username, setUsername] = useState("");
+   const [friend, setFriend] = useState({id:'', name: ''});
 
    const handleLogin = (username) => {
      setUsername(username);
@@ -41,7 +42,7 @@ function App() {
                         <Link to="/friendlist">Friends</Link>
                         </li>
                         <li>
-                          <Link to="messaging">Messaging</Link>
+                          <Link to={`/messaging/${friend.id}`} selectedFriend={friend}>Messaging</Link>
                         </li>
                         </ul>
                         </nav>
@@ -53,7 +54,7 @@ function App() {
                   email="johndoe@example.com"
                   phone="555-1234"
                   address="123 Main St"
-                  friendlist={<Link to="/frindlist" />}
+                  friendlist="/frindlist" 
                   />
                 </Route>  
                 <Route path="/friendlist">
@@ -61,10 +62,12 @@ function App() {
                   username={username}
                   onLogout={handleLogout}
                   />
-                  <Route path="messaging">
-                    <MessagingPage />
                   </Route>
-                </Route>
+                  <Route path="/messaging/:friendId">
+                    <MessagingPage
+                    friend={friend}
+                    onSendMessage={(message) => console.log(`Sending message "${message}" to friend ${friend.id}`)} />
+                  </Route>
                </Switch>
               </Router>  
            ) : (

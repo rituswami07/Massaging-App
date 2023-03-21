@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 import logo from './download.jpeg';
 import logo2 from './download (1).jpeg';
 import logo3 from './download (2).jpeg';
@@ -19,6 +19,9 @@ function FriendListItem(props) {
             <img src={props.friend.image} alt={props.friend.name} className="frnd-img" />
             <h2>{props.friend.status}</h2>    
             <button onClick={handleAddFriend}>Add Friend</button>
+            <Link to={`/messaging/${props.friend.name}`}>
+                <button>Message</button>
+            </Link>
         </div>
     );
 }
