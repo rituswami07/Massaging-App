@@ -22,10 +22,27 @@ function FriendListItem(props) {
             <Link to={`/messaging/${props.friend.name}`}>
                 <button>Message</button>
             </Link>
+            <Link to={`/friends/${props.friend.name}`}>
+                <button>View Friends</button>
+            </Link>
         </div>
     );
 }
 
+function FriendList({ friends }) {
+    return (
+        <div>
+            {friends.map((friend) => (
+                <FriendListItem
+                  key={friend.id} 
+                  friend={friend}
+                  />
+            ))}
+        </div>
+    );
+}
+
+/*
 function FriendList(props) {
     console.log('friend:', props.friends); //add this line
     console.log('onAddFriend:', props.onAddFriend); //add this line
@@ -43,16 +60,18 @@ function FriendList(props) {
             {friendList}
         </div>
     );
-}
+} */
 
 function FriendListPage(props) {
-
+    
     const [friends, setFriends] = useState([
         {name: 'Jone', status: 'Online', image: logo },
         {name: 'Jane', status: 'Offine', image: logo2 },
         {name: 'Bob', status: 'Online', image: logo3 },
         {name: 'Divya', status: 'Online', image: logo4 },
     ]);
+     
+
 
     const handleAddFriend = (friend) => {
         console.log('add friend:', friend); //add this line
@@ -62,11 +81,17 @@ function FriendListPage(props) {
      console.log('friend:', friends); //add this line
 
     return (
+        
         <div className="frndlist">
             <h1>Welcome, {props.username}!</h1>
             <h2>Friend List</h2>
             <FriendList className="frnd" friends={friends} onAddFriend={handleAddFriend} />
-        </div>
+            <Link to="/friends">
+                <button>Friend</button>
+            </Link>
+           
+           </div>
+
     );
 }
 

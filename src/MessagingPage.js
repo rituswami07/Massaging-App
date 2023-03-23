@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
+/*
 function MessagingPage(props) {
     const { friendId } = useParams();
     const [message, setMessage] = useState('');
@@ -11,15 +12,16 @@ function MessagingPage(props) {
     };
 
     const handleSendClick = (friend) => {
-        const newMessage = { friendId, message };
-        setMessages([...messages, message]);
+        // TODO: Send message to the selected friend using friend's info and message contebt
+        console.log(`Sending message "${message}" to friend ${friend.id}`);
+        
          setMessage('');
 
     };
         
-    const messageList = messages.map((message, index) => (
+    const messageList = messages.map((msg, index) => (
         <div key={index}>
-            <p>{message.message}</p>
+            <p>{msg.sender}: {msg.content}</p>
             </div>
     ));
   
@@ -36,12 +38,13 @@ function MessagingPage(props) {
             <h1>Messaging with friend {friendId}</h1>
             <p>Type your message:</p>
             <input type="text" value={message} onChange={handleInputChange} />
-            <button onClick={handleSendClick}>Send</button>
+            <button onClick={() => handleSendClick(props.friend)}>Send</button>
         </div>
     );
 }
+ */
  
- /*
+ 
 function MessagePage(props) {
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState("");
@@ -70,6 +73,6 @@ const handleSendMessage = () => {
           <button onClick={handleSendMessage}>Send</button>
       </div>
   );
-} */
+} 
 
-export default MessagingPage;
+export default MessagePage;
