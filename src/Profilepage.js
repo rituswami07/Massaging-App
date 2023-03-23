@@ -1,11 +1,10 @@
+
 import React from 'react';
 import logo from './wp1810243.jpg';
+import { Link } from 'react-router-dom';
 
 function ProfilePage(props) {
 
-    const handleClick = (event) => {
-        event.preventDefault();
-    }
 
     let friendList = [];
     if (Array.isArray(props.friends)) {
@@ -15,7 +14,7 @@ function ProfilePage(props) {
         <div>
             <h1>Welcome to your profile, {props.username}!</h1>
             <img src={logo} alt="logo" className="img-2" />
-            <p>Here's your profile information:
+            <p>Here's your profile information:  
                 <ul>
                     <li>
                         Name: {props.name}
@@ -29,10 +28,14 @@ function ProfilePage(props) {
                     <li>
                         Address: {props.address}
                     </li>
-                    <li> Frnds: {friendList}
-                    </li>
-                </ul>
-            </p>
+                    </ul>
+                    
+                    <button className="login-btn" type="submit">
+                        <Link to={{ pathname: "/friendlist", state: { friends: props.friends } }}> 
+                            Frnds: {friendList}
+                        </Link>
+                    </button>   
+                </p>    
         </div>
     );
 }

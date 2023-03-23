@@ -1,14 +1,16 @@
                                                                 
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom";
 import './App.css';
 import LoginPage from './LoginPage';
 import FriendListPage from './FriendListPage';
 import ProfilePage from "./Profilepage";
+import MessagingPage from './MessagingPage';
 
 function App() { 
    const [isLoggedIn, setIsLoggedIn] = useState(false);
    const [username, setUsername] = useState("");
+   const [friend, setFriend] = useState({id:'', name: ''});
 
    const handleLogin = (username) => {
      setUsername(username);
@@ -31,6 +33,19 @@ function App() {
 
              {isLoggedIn ? ( 
               <Router>
+                <nav>
+                  <ul>
+                    <li>
+                      <Link to="/">Profile</Link>
+                      </li>
+                      <li>
+                        <Link to="/friendlist">Friends</Link>
+                        </li>
+                        <li>
+                          <Link to={`/messaging/${friend.id}`} selectedFriend={friend}>Messaging</Link>
+                        </li>
+                        </ul>
+                        </nav>
                <Switch>
                  <Route exact path="/">
                 <ProfilePage
@@ -39,7 +54,7 @@ function App() {
                   email="johndoe@example.com"
                   phone="555-1234"
                   address="123 Main St"
-                  friends="FriendListPage"
+                  friendlist="/frindlist" 
                   />
                 </Route>  
                 <Route path="/friendlist">
@@ -47,7 +62,12 @@ function App() {
                   username={username}
                   onLogout={handleLogout}
                   />
-                </Route>
+                  </Route>
+                  <Route path="/messaging/:friendId">
+                    <MessagingPage
+                    friend={friend}
+                    onSendMessage={(message) => console.log(`Sending message "${message}" to friend ${friend.id}`)} />
+                  </Route>
                </Switch>
               </Router>  
            ) : (
