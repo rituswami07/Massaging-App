@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
 /*
 function MessagingPage(props) {
@@ -68,7 +69,7 @@ const handleSendMessage = () => {
   return (
       <div>
           <h1>Welcome to the Messaging page, {props.name}!</h1>
-          <div>{messageList}</div>
+          <div className="msg-list">{messageList}</div>
           <input type="text" value={newMessage} onChange={handleNewMessage} />
           <button onClick={handleSendMessage}>Send</button>
       </div>

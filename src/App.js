@@ -1,6 +1,6 @@
                                                                 
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route,Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route,Link, } from "react-router-dom";
 import './App.css';
 import LoginPage from './LoginPage';
 import FriendListPage from './FriendListPage';
@@ -38,15 +38,8 @@ function App() {
                     <li>
                       <Link to="/">Profile</Link>
                       </li>
-                      <li>
-                        <Link to="/friendlist">Friends</Link>
-                        </li>
-                        <li>
-                          <Link to={`/messaging/${friend.id}`} selectedFriend={friend}>Messaging</Link>
-                        </li>
-                        </ul>
-                        </nav>
-               <Switch>
+                  </ul>
+                 </nav> 
                  <Route exact path="/">
                 <ProfilePage
                   username={username}
@@ -68,7 +61,6 @@ function App() {
                     friend={friend}
                     onSendMessage={(message) => console.log(`Sending message "${message}" to friend ${friend.id}`)} />
                   </Route>
-               </Switch>
               </Router>  
            ) : (
              <LoginPage onLogin={handleLogin} className="loginpage" />

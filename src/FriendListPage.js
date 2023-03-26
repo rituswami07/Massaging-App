@@ -22,9 +22,7 @@ function FriendListItem(props) {
             <Link to={`/messaging/${props.friend.name}`}>
                 <button>Message</button>
             </Link>
-            <Link to={`/friends/${props.friend.name}`}>
-                <button>View Friends</button>
-            </Link>
+           
         </div>
     );
 }
